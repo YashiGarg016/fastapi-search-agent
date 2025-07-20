@@ -88,15 +88,6 @@ cd fastapi-search-agent
 
 Extend `app/services/search_providers.py` with new async functions for each provider and update the `perform_search` logic.
 
-## Environment Variables
 
-See `.env` for required API keys:
-
-- `GOOGLE_API_KEY`, `GOOGLE_CSE_ID`
-- `BING_API_KEY`
-- `BRAVE_API_KEY`
-- `OPENAI_API_KEY`
-- `COHERE_API_KEY`
-- `HF_API_KEY`
 
 
