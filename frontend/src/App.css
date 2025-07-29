@@ -31,15 +31,47 @@ button {
   cursor: pointer;
 }
 
-.results {
+.side-by-side {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
+  gap: 2rem;
+  margin-top: 20px;
+}
+
+.provider {
+  flex: 1;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.08);
+}
+
+.provider h2 {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
 }
 
 .card {
-  background: white;
-  padding: 15px;
-  border-radius: 6px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  margin-bottom: 1rem;
+}
+
+.source-tag {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 5px;
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.source-tag.google {
+  background-color: #d6e4ff;
+  color: #0047ab;
+}
+
+.source-tag.duckduckgo {
+  background-color: #ffe0b2;
+  color: #d35400;
 }
