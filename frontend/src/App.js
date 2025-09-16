@@ -18,13 +18,14 @@ function App() {
     setDuckResults([]);
 
     try {
-      const res = await axios.get(`http://localhost:8000/search?query=${query}`); // update to your backend URL
+      const res = await axios.get(`http://localhost:8000/search?query=${query}`);
 
       // Optional log for debugging
       console.log("Raw backend response:", res.data);
 
-      const googleData = Array.isArray(res.data.google)
-        ? res.data.google.map((item) => ({
+      // Updated mapping: use res.data.results.google and res.data.results.duckduckgo
+      const googleData = Array.isArray(res.data.results?.google)
+        ? res.data.results.google.map((item) => ({
             title: item.title || "No title",
             link: item.link,
             displayLink: item.displayLink || item.link,
@@ -33,8 +34,8 @@ function App() {
           }))
         : [];
 
-      const duckData = Array.isArray(res.data.duckduckgo)
-        ? res.data.duckduckgo.map((item) => ({
+      const duckData = Array.isArray(res.data.results?.duckduckgo)
+        ? res.data.results.duckduckgo.map((item) => ({
             title: item.title || item.Text || "No title",
             link: item.link || item.FirstURL || "#",
             displayLink: item.displayLink || item.FirstURL || item.link || "#",
