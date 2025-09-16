@@ -9,7 +9,7 @@ function App() {
   const [duckResults, setDuckResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const baseURL = process.env.backend_url;
+  const baseURL = process.env.REACT_APP_BACKEND_URL;
 
   const handleSearch = async () => {
     if (!query.trim()) return;
@@ -30,7 +30,7 @@ function App() {
         ? res.data.results.google.map((item) => ({
             title: item.title || "No title",
             link: item.link,
-            displayLink: item.displayLink || item.link,
+            displayLink: item.displayLink || item.link, 
             snippet: item.snippet || "",
             source: "google",
           }))
