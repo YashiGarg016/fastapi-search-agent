@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./App.css"; // Optional: for styling
 
+
 function App() {
   const [query, setQuery] = useState("");
   const [googleResults, setGoogleResults] = useState([]);
   const [duckResults, setDuckResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const baseURL = process.env.backend_url;
 
   const handleSearch = async () => {
     if (!query.trim()) return;
@@ -18,7 +20,7 @@ function App() {
     setDuckResults([]);
 
     try {
-      const res = await axios.get(`http://localhost:8000/search?query=${query}`);
+      const res = await axios.get(`${baseURL}/search?query=${query}`);
 
       // Optional log for debugging
       console.log("Raw backend response:", res.data);
